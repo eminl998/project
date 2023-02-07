@@ -13,8 +13,9 @@ class TodoController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $todos = $user->todos()->get();
-        $todos=Todo::orderBy('created_at','desc')->get();
+
+        $todos = Todo::where('user_id', auth()->user()->id)->get();
+
         return view('todos.index', compact('todos'));
     }
 
