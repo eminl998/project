@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #dddddd;
+  }
+  
+  .bold-text {
+    font-weight: bold;
+  }
+  
+  .text-success {
+    color: green;
+  }
+  
+  .text-warning {
+    color: orange;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  
