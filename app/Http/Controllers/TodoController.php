@@ -45,6 +45,10 @@ class TodoController extends Controller
 
     public function show($id)
     {
+        if (!auth()->check()) {
+            abort(404);
+        }
+
         $user = auth()->user();
         $todo = $user->todos()->where('id', $id)->firstOrFail();
         return view('todos.show', ['todo' => $todo]);
@@ -80,8 +84,8 @@ class TodoController extends Controller
     {
         $todo = Todo::find($id);
         $todo->delete();
-        
-        
+
+
         return redirect()->route('todos.index')->with('success', 'Todo task has been deleted successfully.');
     }
 }
