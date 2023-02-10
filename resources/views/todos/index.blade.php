@@ -47,9 +47,9 @@
                     <tbody>
                         @foreach($todos as $todo)
                             <tr>
-                                <td>{{substr($todo->title,0,10)}}</td>
-                                <td>{{substr ($todo->description,0,20).'...'}}</td>
-                                {{-- <td>{{$todo->task_level}}</td> --}}
+                                <td>{{substr($todo->title,0,15).(strlen($todo->title)>15 ? '...' : '')}}</td>
+                                <td>{{ substr($todo->description, 0, 20) . (strlen($todo->description) > 20 ? '...' : '') }}</td>
+                              
                                 <td>
                                   @if($todo->task_level == 0)
                                   <span class="text-success">Low</span>
