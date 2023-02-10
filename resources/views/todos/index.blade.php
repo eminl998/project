@@ -34,7 +34,7 @@
                   @if(!$todos->isEmpty())
 
 
-                  <table class="bold-text">
+                  <table>
                     <thead>
                         <tr class="bold-text">
                             <th>Title</th>
