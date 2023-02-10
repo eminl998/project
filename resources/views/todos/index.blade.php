@@ -36,13 +36,11 @@
 
                   <table>
                     <thead>
-                        <tr class="bold-text">
                             <th>Title</th>
                             <th>Description</th>
                             <th>Task Level</th>
                             <th>Completed</th>
                             <th>Actions</th>
-                        </tr>
                     </thead>
                     <tbody>
                         @foreach($todos as $todo)
