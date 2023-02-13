@@ -19,6 +19,25 @@ class TodoController extends Controller
         return view('todos.index', compact('todos'));
     }
 
+    public function search(TodoRequest $request)
+    {
+        if($request->search){
+
+            $searchTodos = Todo::where('title','LIKE','%'.$request->search.'%');
+            return view('todos.search', compact('search'));
+        }else{
+
+            return redirect()->back()->with('message','No Todos Found');
+        }
+        // $search = $request->input('search');
+        // $todos = Todo::query()
+        // ->where('title','LIKE',"%{$search}%")
+        
+        // ->get();
+        // return view('todos.search', compact('search'));
+
+    }
+
     public function create()
     {
         return view('todos.create');
@@ -38,8 +57,6 @@ class TodoController extends Controller
         $request->session()->flash('alert-success', 'Todo Created Successfully');
 
         return redirect()->route('todos.index');
-
-
 
     }
 

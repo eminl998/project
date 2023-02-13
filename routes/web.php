@@ -29,6 +29,8 @@ Route::controller(TodoController::class)->group(function () {
 
 Route::get('todos', 'TodoController@index')->name('todos.index');
 
+Route::get('search',[TodoController::class,'search'])->name('search');
+
 Route::get('create', [TodoController::class, 'create'])->name('create');
 
 Route::post('store', [TodoController::class, 'store'])->name('store');
