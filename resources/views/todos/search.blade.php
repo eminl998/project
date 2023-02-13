@@ -56,7 +56,9 @@
                                 
                             </tr>
                 @endforeach
+                
             </tbody>
         </table>
+        <a href="{{url()->previous()}}" class="btn btn-sm btn-outline-dark">Go Back</a>
     </div>
 @endsection
