@@ -27,30 +27,22 @@
                     {{Session::get('error')}}
                   </div>
                   @endif
-
+                <h6>
                   <div class="col-md-4 float-right">
-                    <form action="{{route('search')}}" type="GET" role="search">
-                    @csrf
-                      <input type="search" name="query" class="form-control" placeholder="Search Title" required/> 
-                      
+                    <form action="{{route('todos.index')}}" type="GET" role="search" id="search" style="display: inline-block;">
+                      <input type="search" name="search" class="form-control" placeholder="Search Title" required style="display: inline-block;" /> 
+                         <select name="is_completed" id="is_completed" form="search" style="display: inline-block;">
+                          <option selected="true" disabled>Filter</option> 
+                           <option value="1">Completed</option>
+                           <option value="0">Not Completed</option>
+                        </select>
                     </form>
-                    
                   </div> 
+                </h6> 
           
                   @if(!$todos->isEmpty())
 
-                  @if($todos->isNotEmpty())
-                    @foreach ($todos as $todo)
-                      <div class="">
-                        <p>{{$todo->title}}</p>
-                      </div>
-                    @endforeach
-                  @else
-                      <div>
-                        <h2>No Todos found</h2>
-                      </div>
-                   @endif   
-                  
+                
                   <table class="bold-text">
                     <thead>
                         <tr class="bold-text">
@@ -116,7 +108,10 @@
 
                   @endif
 
-                <br>  <a  href="{{route ('create')}}" class="btn btn-outline-dark ">Create ToDo</a>
+                <br>  
+                <div class="row justify-centre">
+                <a  href="{{route ('create')}}" class="btn btn-outline-dark ">Create ToDo</a>
+                </div>
                     
                 </div>
             </div>

@@ -4,39 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
-use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
-
-        $todos = Todo::where('user_id', auth()->user()->id)->get();
+        $todos = Todo::where('user_id', auth()->user()->id)
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('title', 'like', '%' . $request->search . '%');
+            })
+            ->when($request->status, function ($query) use ($request) {
+                $query->where('completed', $request->status == 'completed');
+            })->get();
 
         return view('todos.index', compact('todos'));
     }
 
-    // public function search(TodoRequest $request)
-    // {
-    //     if($request->search){
-
-    //         $searchTodos = Todo::where('title','LIKE','%'.$request->search.'%');
-    //         return view('todos.search', compact('search'));
-    //     }else{
-
-    //         return redirect()->back()->with('message','No Todos Found');
-    //     }
-    //     // $search = $request->input('search');
-    //     // $todos = Todo::query()
-    //     // ->where('title','LIKE',"%{$search}%")
-        
-    //     // ->get();
-    //     // return view('todos.search', compact('search'));
-
-    // }
 
     public function create()
     {
