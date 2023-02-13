@@ -31,7 +31,7 @@
                   <div class="col-md-4 float-right">
                     <form action="{{route('search')}}" type="GET" role="search">
                     @csrf
-                      <input type="search" name="query" class="form-control" placeholder="Search Todos" required/> 
+                      <input type="search" name="query" class="form-control" placeholder="Search Title" required/> 
                       
                     </form>
                     
