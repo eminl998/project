@@ -29,9 +29,10 @@
                   @endif
 
                   <div class="col-md-4 float-right">
-                    <form action="{{route('search')}}" method="GET" role="search">
+                    <form action="{{route('search')}}" type="GET" role="search">
                     @csrf
-                      <input type="text" name="search" class="form-control" placeholder="Search Todos" required/> 
+                      <input type="search" name="query" class="form-control" placeholder="Search Todos" required/> 
+                      
                     </form>
                     
                   </div> 

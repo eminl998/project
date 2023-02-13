@@ -16,7 +16,6 @@
                      
                     <b>Title :</b> {{$todo->title}}<br>
                     <b>Description :</b> {{$todo->description}}<br>
-                    {{-- <b>Task Level :</b>{{$todo->task_level}}<br> --}}
                     <b>Task Level :</b>
                         @if ($todo->task_level === 0)
                         Low

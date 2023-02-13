@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,7 @@ Route::controller(TodoController::class)->group(function () {
 
 Route::get('todos', 'TodoController@index')->name('todos.index');
 
-Route::get('search',[TodoController::class,'search'])->name('search');
+Route::get('search',[SearchController::class,'search'])->name('search');
 
 Route::get('create', [TodoController::class, 'create'])->name('create');
 
