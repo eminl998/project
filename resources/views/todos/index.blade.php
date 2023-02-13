@@ -27,18 +27,18 @@
                     {{Session::get('error')}}
                   </div>
                   @endif
-                <h6>
-                  <div class="col-md-4 float-right">
-                    <form action="{{route('todos.index')}}" type="GET" role="search" id="search" style="display: inline-block;">
-                      <input type="search" name="search" class="form-control" placeholder="Search Title" required style="display: inline-block;" /> 
-                         <select name="is_completed" id="is_completed" form="search" style="display: inline-block;">
-                          <option selected="true" disabled>Filter</option> 
-                           <option value="1">Completed</option>
-                           <option value="0">Not Completed</option>
-                        </select>
-                    </form>
-                  </div> 
-                </h6> 
+                <h6 class="d-flex justify-content">
+  <form action="{{ route('todos.index') }}" method="get" class="form-inline">
+    <input type="text" class="form-control mr-2" name="search" value="{{ request('search') }}" placeholder="Search">
+    <select class="form-control mr-2" name="status">
+      <option value="">All</option>
+      <option value="is_completed" {{ request('status') == 'is_completed' ? 'selected' : '' }}>Completed</option>
+      <option value="not_completed" {{ request('status') == 'not_completed' ? 'selected' : '' }}>Not Completed</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</h6>
+
           
                   @if(!$todos->isEmpty())
 

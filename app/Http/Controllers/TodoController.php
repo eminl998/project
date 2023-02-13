@@ -16,7 +16,7 @@ class TodoController extends Controller
                 $query->where('title', 'like', '%' . $request->search . '%');
             })
             ->when($request->status, function ($query) use ($request) {
-                $query->where('completed', $request->status == 'completed');
+                $query->where('is_completed', $request->status == 'is_completed');
             })->get();
 
         return view('todos.index', compact('todos'));
