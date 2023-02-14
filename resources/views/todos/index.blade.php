@@ -32,8 +32,14 @@
     <input type="text" class="form-control mr-2" name="search" value="{{ request('search') }}" placeholder="Search">
     <select class="form-control mr-2" name="status">
       <option value="">All</option>
-      <option value="is_completed" {{ request('status') == 'is_completed' ? 'selected' : '' }}>Completed</option>
+      <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
       <option value="not_completed" {{ request('status') == 'not_completed' ? 'selected' : '' }}>Not Completed</option>
+    </select>
+    <select class="form-control mr-2" name="level">
+      <option value="">All</option>
+      <option value="low" {{ request('status') == 'low' ? 'selected' : '' }}>Low</option>
+      <option value="medium" {{ request('status') == 'medium' ? 'selected' : '' }}>Medium</option>
+      <option value="urgent" {{ request('status') == 'urgent' ? 'selected' : '' }}>Urgent</option>
     </select>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
@@ -61,19 +67,19 @@
                                 <td>{{ substr($todo->description, 0, 20) . (strlen($todo->description) > 20 ? '...' : '') }}</td>
                               
                                 <td>
-                                  @if($todo->task_level == 0)
+                                  @if($todo->task_level == 'low')
                                   <span class="text-success">Low</span>
-                                  @elseif($todo->task_level == 1)
+                                  @elseif($todo->task_level == 'medium')
                                   <span class="text-warning">Medium</span>
-                                  @elseif($todo->task_level == 2)
+                                  @elseif($todo->task_level == 'urgent')
                                   <span class="text-danger">Urgent</span>
                                   @endif
                                 </td>
-                                {{-- <td>{{$todo->is_completed}}</td> --}}
+                                
                                 <td>
-                                  @if($todo->is_completed == 0)
+                                  @if($todo->is_completed == 'not_completed')
                                       Is not Completed
-                                  @elseif($todo->is_completed == 1)
+                                  @elseif($todo->is_completed == 'completed')
                                       Is Completed
                                   
                                   @endif

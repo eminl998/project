@@ -35,17 +35,17 @@
                           <label for="">Task Level</label>
                           <select name="task_level" class="form-control">
                             <option disabled> Select Option</option>
-                            <option value="0" {{ old('task_level') == 0 ? 'selected' : ($todo->task_level == 0 ? 'selected' : '') }}>Low</option>
-                            <option value="1" {{ old('task_level') == 1 ? 'selected' : ($todo->task_level == 1 ? 'selected' : '') }}>Medium</option>
-                            <option value="2" {{ old('task_level') == 2 ? 'selected' : ($todo->task_level == 2 ? 'selected' : '') }}>Urgent</option>
+                            <option value="low" {{ old('task_level') == 'low' ? 'selected' : ($todo->task_level == 0 ? 'selected' : '') }}>Low</option>
+                            <option value="medium" {{ old('task_level') == 'medium' ? 'selected' : ($todo->task_level == 1 ? 'selected' : '') }}>Medium</option>
+                            <option value="urgent" {{ old('task_level') == 'urgent' ? 'selected' : ($todo->task_level == 2 ? 'selected' : '') }}>Urgent</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="">Status</label>
                           <select name="is_completed" class="form-control">
                             <option disabled> Select Option</option>
-                            <option value="1" {{ old('is_completed') == 1 ? 'selected' : ($todo->is_completed == 1 ? 'selected' : '') }}>Completed</option>
-                            <option value="0" {{ old('is_completed') == 0 ? 'selected' : ($todo->is_completed == 0 ? 'selected' : '') }}>Incompleted</option>
+                            <option value="completed" {{ old('is_completed') == 'completed' ? 'selected' : ($todo->is_completed == 'completed' ? 'selected' : '') }}>Completed</option>
+                            <option value="not_completed" {{ old('is_completed') == 'not_completed' ? 'selected' : ($todo->is_completed == 'not_completed' ? 'selected' : '') }}>Incompleted</option>
                           </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>

@@ -33,9 +33,9 @@
                           <div>
                             <select name="task_level" class="form-control">
                               <option disabled> Task Level</option>
-                              <option value="2" {{ old('task_level') == 2 ? 'selected' : '' }}>Urgent</option>
-                              <option value="1" {{ old('task_level') == 1 ? 'selected' : '' }}>Medium</option>
-                              <option value="0" {{ old('task_level') == 0 ? 'selected' : '' }}>Low</option>
+                              <option value="urgent" {{ old('task_level') == 'urgent' ? 'selected' : '' }}>Urgent</option>
+                              <option value="medium" {{ old('task_level') == 'medium' ? 'selected' : '' }}>Medium</option>
+                              <option value="low" {{ old('task_level') == 'low' ? 'selected' : '' }}>Low</option>
                             </select>
                           </div> <br>
                           

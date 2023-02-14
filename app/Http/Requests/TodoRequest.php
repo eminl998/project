@@ -26,23 +26,23 @@ class TodoRequest extends FormRequest
         return [
             'title' => 'required|min:3|max:255',
             'description' => 'required|min:5|max:1000',
-            'is_completed' => 'boolean',
-            'task_level' => 'required|numeric|min:0|max:2',
+            // 'is_completed' => 'required|min:3|max:15',
+            'task_level' => 'required|min:3|max:15',
         ];
     }
 
     public function messages()
-{
-    return [
-        'title.required' => 'The title is required',
-        'title.min' => 'The title must be at least 3 characters',
-        'title.max' => 'The title cannot be more than 255 characters',
-        'description.required' => 'The description is required',
-        'description.min' => 'The description must be at least 5 characters',
-        'description.max' => 'The description cannot be more than 1000 characters',
-        'is_completed.boolean' => 'The is_completed field must be a boolean value',
-    ];
-}
+    {
+        return [
+            'title.required' => 'The title is required',
+            'title.min' => 'The title must be at least 3 characters',
+            'title.max' => 'The title cannot be more than 255 characters',
+            'description.required' => 'The description is required',
+            'description.min' => 'The description must be at least 5 characters',
+            'description.max' => 'The description cannot be more than 1000 characters',
+            'is_completed.boolean' => 'The is_completed field must be a boolean value',
+        ];
+    }
 
 
 }
