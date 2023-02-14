@@ -32,3 +32,20 @@ table {
       margin-top: 20px;
       padding-bottom: 10px;
   }
+    th,
+    td {
+      padding: 0.5rem;
+    }
+  
+    thead {
+      background-color: #e9ecef;
+    }
+  
+    tbody {
+      background-color: #f8f9fa;
+    }
+  
+    .table {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
