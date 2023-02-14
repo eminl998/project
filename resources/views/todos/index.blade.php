@@ -107,6 +107,7 @@
                                   <form id="delete-form-{{$todo->id}}" action="{{route('destroy', $todo->id)}}" method="POST" style="display: none;">
                                     
                                     @method('DELETE')
+                                    @csrf
                                   </form>
                                 </td>
                                 
