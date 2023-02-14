@@ -1,8 +1,7 @@
 @extends('layouts.app')
-
-@section('content')
-<div class="container" >
-    <div class="row justify-content-center">
+@section('content') 
+<div class = "d-flex justify-content-center" > 
+  <div>
         <div>
             <div class="card">
               <div class="card-header">{{ __('Your ToDos')}}</div> 
@@ -132,10 +131,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-</div>
+    </div> 
+  </div>
 @endsection
-
-
-
