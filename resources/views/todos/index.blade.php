@@ -27,23 +27,32 @@
                     {{Session::get('error')}}
                   </div>
                   @endif
-                <h6 class="d-flex justify-content">
-  <form action="{{ route('todos.index') }}" method="get" class="form-inline">
-    <input type="text" class="form-control mr-2" name="search" value="{{ request('search') }}" placeholder="Search">
-    <select class="form-control mr-2" name="status">
-      <option value="">All</option>
-      <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
-      <option value="not_completed" {{ request('status') == 'not_completed' ? 'selected' : '' }}>Not Completed</option>
-    </select>
-    <select class="form-control mr-2" name="level">
-      <option value="">All</option>
-      <option value="low" {{ request('status') == 'low' ? 'selected' : '' }}>Low</option>
-      <option value="medium" {{ request('status') == 'medium' ? 'selected' : '' }}>Medium</option>
-      <option value="urgent" {{ request('status') == 'urgent' ? 'selected' : '' }}>Urgent</option>
-    </select>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</h6>
+                <div class="d-flex justify-content-center">
+                  <form action="{{ route('todos.index') }}" method="get" class="form-inline d-flex">
+                    <div class="form-group mx-2">
+                      <input type="text" class="form-control" name="search" value="{{ request('search') }}" placeholder="Search">
+                    </div>
+                    <div class="form-group mx-2">
+                      <select class="form-control" name="status">
+                        <option value="">All</option>
+                        <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Completed</option>
+                        <option value="not_completed" {{ request('status') == 'not_completed' ? 'selected' : '' }}>Not Completed</option>
+                      </select>
+                    </div>
+                    <div class="form-group mx-2">
+                      <select class="form-control" name="level">
+                        <option value="">All</option>
+                        <option value="low" {{ request('level') == 'low' ? 'selected' : '' }}>Low</option>
+                        <option value="medium" {{ request('level') == 'medium' ? 'selected' : '' }}>Medium</option>
+                        <option value="urgent" {{ request('level') == 'urgent' ? 'selected' : '' }}>Urgent</option>
+                      </select>
+                    </div>
+                    <div class="form-group mx-2">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+
 
           
                   @if(!$todos->isEmpty())
